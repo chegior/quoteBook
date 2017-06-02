@@ -2,11 +2,26 @@
 <html ng-app='myApp'>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
     <title>Quote Book</title>
   </head>
   <body ng-controller='myCtrl'>
     <h1>Quote Book</h1>
+    <div class="quoteContainer">
+      <div class="newQuote">
+        <input type="text" placeholder="Add new Quote!!" ng-model="newQuoteText">
+        <input type="text" placeholder="Quotes Author" ng-model="newQuoteAuthor">
+        <button ng-click="addQuote()">Add Quote</button>
+      </div>
 
+      <div class="quoteSingle" ng-repeat='quote in quotes track by $index'>
+        <span class="quoteText">"  {{quote.text}}  "</span>
+        <span class="quoteAuthor">{{quote.author}}</span>
+        <button type="button" ng-click='deleteQuote(quote)'>X</button>
+      </div>
+
+
+    </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
   <script src="./js/app.js"></script>
